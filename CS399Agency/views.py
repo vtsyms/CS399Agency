@@ -22,3 +22,6 @@ def signup(request):
 
 def friend(request):
     return render(request, 'friend.html')
+
+def campaigns(request):
+    return render(request, 'campaigns.html')
