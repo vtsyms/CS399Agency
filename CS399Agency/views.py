@@ -25,3 +25,12 @@ def friend(request):
 
 def campaigns(request):
     return render(request, 'campaigns.html')
+
+def campone(request):
+    return render(request, 'campone.html')
+
+def camptwo(request):
+    return render(request, 'camptwo.html')
+
+def campthree(request):
+    return render(request, 'campthree.html')
