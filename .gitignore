@@ -1,0 +1,12 @@
+
+*.xml
+
+.idea/.name
+
+.idea/CS399Agency.iml
+
+CS399Agency/__init__.pyc
+
+*.pyc
+
+*.pyc

@@ -1,1 +1,1 @@
-LOCAL_APPS = ['main']
+LOCAL_APPS = ['CS399Agency']
