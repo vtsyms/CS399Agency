@@ -11,3 +11,5 @@ def about(request):
 def contests(request):
     return render(request, 'contests.html')
 
+def connect(request):
+    return render(request, 'connect.html')
