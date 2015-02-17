@@ -74,6 +74,19 @@ header.carousel .fill {
     }
 }
 
+.navbar-brand {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.navbar-nav {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+
 footer {
     margin: 50px 0;
 }
