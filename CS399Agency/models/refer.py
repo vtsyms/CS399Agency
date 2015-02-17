@@ -1,6 +1,6 @@
 from django.db import models
 
-class Signup(models.Model):
+class Refer(models.Model):
     email = models.EmailField(max_length=254)
     fEmail = models.EmailField(max_length=254)
     fFirstName = models.CharField(max_length=128, default="")
