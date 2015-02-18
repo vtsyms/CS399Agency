@@ -58,3 +58,6 @@ def campthree(request):
 
 def ts(request):
     return render(request, 'ts.html')
+
+def error(request):
+    return render(request, '404.html')
