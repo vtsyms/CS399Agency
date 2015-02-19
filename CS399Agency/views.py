@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
-from models import Signup
+from models import Signup, Contest, Entrant
 
 
 def index(request):
@@ -9,9 +9,25 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
+    
+class EntrantForm(forms.Form):
+  name = forms.CharField(label="Name")
+  email = forms.EmailField(label = "Email")
 
 def contests(request):
-    return render(request, 'contests.html')
+  if request.method == 'POST':
+    form = EntrantForm(request.POST)
+    if form.is_valid():
+      en = Entrant()
+      en.name = form.cleaned_data["name"]
+      en.email = form.cleaned_data["email"]
+      en.save()
+    return HttpResponseRedirect ("/ts/")
+  elif request.method == 'GET':
+    form = EntrantForm()
+  else:
+    return HttpResponseRedirect("/404/")
+  return render(request, 'contests.html', {"form": form, "contests": Contest.objects.order_by("deadline")})
 
 def connect(request):
     return render(request, 'connect.html')
