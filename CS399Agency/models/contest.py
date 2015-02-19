@@ -6,5 +6,5 @@ class Contest(models.Model):
     description = models.TextField()
     
 class Entrant(models.Model):
-  name = models.CharField(max_length=128, default="")
-  email = models.EmailField(max_length=254)
+	name = models.CharField(max_length=128, default="")
+	email = models.EmailField(max_length=254)
