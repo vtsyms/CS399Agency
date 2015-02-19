@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
-from models import Signup, Contest, Entrant, Refer
+from models import Signup, Contest, Entrant, Refer, Contact
 
 
 def index(request):
@@ -32,8 +32,30 @@ def contests(request):
 def connect(request):
     return render(request, 'connect.html')
 
+class ContactForm(forms.Form):
+    email = forms.EmailField(label = "Your Email")
+    firstName = forms.CharField(label = "Your First Name")
+    lastName = forms.CharField(label = "Your Last Name")
+    subject = forms.CharField(label = "Your Subject")
+    message = forms.CharField(label = "Your Message")
+
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            co = Contact()
+            co.email = form.cleaned_data["email"]
+            co.firstName = form.cleaned_data["firstName"]
+            co.lastName = form.cleaned_data["lastName"]
+            co.subject = form.cleaned_data["subject"]
+            co.message = form.cleaned_data["message"]
+            co.save()
+            return HttpResponseRedirect ("/feedback/")
+    elif request.method == 'GET':
+        form = ContactForm()
+    else:
+        return HttpResponseRedirect ("/404/")
+    return render(request, 'contact.html', {"form": form})
 
 class SignupForm(forms.Form):
     firstName = forms.CharField(label = "First Name")
@@ -97,6 +119,9 @@ def ts(request):
 
 def reffered(request):
     return render(request, 'reffered.html')
+
+def feedback(request):
+    return render(request, 'feedback.html')
 
 def error(request):
     return render(request, '404.html')
