@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
-from models import Signup, Contest, Entrant
+from models import Signup, Contest, Entrant, Refer
 
 
 def index(request):
@@ -57,8 +57,28 @@ def signup(request):
         return HttpResponseRedirect ("/404/")
     return render(request, "signup.html", {"form": form})
 
+class ReferForm(forms.Form):
+    yourEmail = forms.EmailField(label = "Your Email")
+    friendsEmail = forms.EmailField(label = "Friends Email")
+    friendsFirstName = forms.CharField(label = "Friends First Name")
+    friendsLastName = forms.CharField(label = "Friends Last Name")
+
 def friend(request):
-    return render(request, 'friend.html')
+    if request.method == 'POST':
+        form = ReferForm(request.POST)
+        if form.is_valid():
+            refer = Refer()
+            refer.yourEmail = form.cleaned_data["yourEmail"]
+            refer.friendsEmail = form.cleaned_data["friendsEmail"]
+            refer.friendsFirstName = form.cleaned_data["friendsFirstName"]
+            refer.friendsLastName = form.cleaned_data["friendsLastName"]
+            refer.save()
+            return HttpResponseRedirect ("/reffered/")
+    elif request.method == 'GET':
+        form = ReferForm()
+    else:
+        return HttpResponseRedirect ("/404/")
+    return render(request, 'friend.html', {"form": form})
 
 def campaigns(request):
     return render(request, 'campaigns.html')
@@ -74,6 +94,9 @@ def campthree(request):
 
 def ts(request):
     return render(request, 'ts.html')
+
+def reffered(request):
+    return render(request, 'reffered.html')
 
 def error(request):
     return render(request, '404.html')
