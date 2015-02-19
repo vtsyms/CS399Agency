@@ -79,6 +79,24 @@ def signup(request):
         return HttpResponseRedirect ("/404/")
     return render(request, "signup.html", {"form": form})
 
+"""class SweetSledsForm(forms.Form):
+    email = forms.EmailField(label = "Your Email")
+
+def SweetSignup(request):
+    if request.method == 'POST':
+        form = SweetSledsForm(request.POST)
+        if form.is_valid():
+            su = Signup()
+            su.email = form.cleaned_data["email"]
+            su.save()
+            return HttpResponseRedirect ("/ts/")
+
+    elif request.method == 'GET':
+            form = SweetSledsForm()
+    else:
+        return HttpResponseRedirect ("/404/")
+    return render(request, "campone.html", {"form": form})"""
+
 class ReferForm(forms.Form):
     email = forms.EmailField(label = "Your Email")
     fEmail = forms.EmailField(label = "Friends Email")
