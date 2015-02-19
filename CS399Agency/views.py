@@ -58,20 +58,20 @@ def signup(request):
     return render(request, "signup.html", {"form": form})
 
 class ReferForm(forms.Form):
-    yourEmail = forms.EmailField(label = "Your Email")
-    friendsEmail = forms.EmailField(label = "Friends Email")
-    friendsFirstName = forms.CharField(label = "Friends First Name")
-    friendsLastName = forms.CharField(label = "Friends Last Name")
+    email = forms.EmailField(label = "Your Email")
+    fEmail = forms.EmailField(label = "Friends Email")
+    fFirstName = forms.CharField(label = "Friends First Name")
+    fLastName = forms.CharField(label = "Friends Last Name")
 
 def friend(request):
     if request.method == 'POST':
         form = ReferForm(request.POST)
         if form.is_valid():
             refer = Refer()
-            refer.yourEmail = form.cleaned_data["yourEmail"]
-            refer.friendsEmail = form.cleaned_data["friendsEmail"]
-            refer.friendsFirstName = form.cleaned_data["friendsFirstName"]
-            refer.friendsLastName = form.cleaned_data["friendsLastName"]
+            refer.email = form.cleaned_data["email"]
+            refer.fEmail = form.cleaned_data["fEmail"]
+            refer.fFirstName = form.cleaned_data["fFirstName"]
+            refer.fLastName = form.cleaned_data["fLastName"]
             refer.save()
             return HttpResponseRedirect ("/reffered/")
     elif request.method == 'GET':
