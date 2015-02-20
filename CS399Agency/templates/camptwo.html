@@ -10,13 +10,13 @@
         <!-- Heading Row -->
         <div class="row">
             <div class="col-md-8">
-                <img class="img-responsive img-rounded" src="static/yoshi.png"" alt="Yoshi">
+                <img class="img-responsive img-rounded" src="static/yoshi.png" alt="Yoshi">
             </div>
             <!-- /.col-md-8 -->
             <div class="col-md-4">
                 <h1><center>Hey! Come on in to SMARTPETS today!</center></h1>
                 <p>Get the best pet supplies to supply the best care for your pet. SMARTPETS offers quality pet products
-                    and accessories to make your pets healthier smarter pets. </p>
+                    and accessories to make your pets healthier, smarter pets. </p>
             </div>
             <!-- /.col-md-4 -->
         </div>
@@ -25,13 +25,51 @@
         <hr>
 
         <!-- Call to Action Well -->
-        <div class="row">
+          <div class="row">
             <div class="col-lg-12">
-                <div class="well text-center">
+              <div class="well text-center">
+                Your pets are the best.  Don't they deserver the best?
+              </div>
+            </div>
+          </div>
+
+            <!-- /.col-lg-12 -->
+       
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2><center>Buy 4 get 1 free!</center></h2>
+                <p>Buy four of any our SMARTPETS branded products today and get 1 free! To get this incredible deal
+                    just send us your email and we'll send you this amazing coupon!</p>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <h2><center>Selfie!!</center></h2>
+                <p>You heard right, take a selfie with our mascot Yoshi and you'll be entered for a chance to win
+                    a trip to Seattle to meet the real Yoshi!! All you have to do for a chance to win is give us
+                    your email and we'll enter you into the contest! Hurry, hundreds have applied and we expect thousands
+                    more within the next few minutes.</p>
+            </div>
+            <!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <h2><center>Pets are welcome too!</center></h2>
+                <p>Did you bring your special friend shopping with you today? Everyday a random shopper who has brought
+                    their pet along with them will get a 50% off coupon, wow!</p>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+    </div>
+        <div class="row">
+          <div class= "col-md-4">
+          </div>
+            <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <form action="/camptwo" method="POST">
-                                <h1>Email us today for your chance to win!</h1>
+                                <h1>Sign up today!</h1>
                                 {% csrf_token %}
                                 {% bootstrap_form form %}
                                 {% buttons %}
@@ -45,35 +83,4 @@
                     </div>
                 </div>
             </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Buy 4 get 1 free!</h2>
-                <p>Buy four of any our SMARTPETS branded products today and get 1 free! To get this incredible deal
-                    just send us your email and we'll send you this amazing coupon!</p>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2>Selfie!!</h2>
-                <p>You heard right, take a selfie with our mascot Yoshi and you'll be entered for a chance to win
-                    a trip to Seattle to meet the real Yoshi!! All you have to do for a chance to win is give us
-                    your email and we'll enter you into the contest! Hurry, hundreds have applied and we expect thousands
-                    more within the next few minutes.</p>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2>Pets are welcome too!</h2>
-                <p>Did you bring your special friend shopping with you today? Everyday a random shopper who has brought
-                    their pet along with them will get a 50% off coupon, wow! If you're chosen as the winner all we
-                    need is your email so that we can send you this amazing coupon!</p>
-            </div>
-            <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
-    </div>
-
 {% endblock %}

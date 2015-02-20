@@ -44,7 +44,7 @@
             <!-- /.col-md-4 -->
             <div class="col-md-4">
                 <h2>First one's free if you sign up!</h2>
-                <p>Look below to submit a form with your email address and name and we can send you a sample for free!</p>
+                <p>Look below to submit a form with your email address and we can send you a sample for free!</p>
             </div>
             <!-- /.col-md-4 -->
             <div class="col-md-4">
@@ -56,8 +56,10 @@
         </div>
         <!-- /.row -->
         <div class="row">
-                <div class="col-md-6 text-center">
+          <div class="col-md-4"></div>
+                <div class="col-md-4 text-center">
                     <form action="/ts/" method="POST">
+                     <h1>Signup up now!</h1>
                         {% csrf_token %}
                         {% bootstrap_form form %}
                         {% buttons %}

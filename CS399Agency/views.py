@@ -145,14 +145,13 @@ def camptwo(request):
 
 
 class LogosForm(forms.Form):
-    name = forms.CharField(label = "Name")
     email = forms.EmailField(label = "Email")
+    
 def campthree(request):
     if request.method == 'POST':
         form = LogosForm(request.POST)
         if(form.is_valid()):
             logo = Logos()
-            logo.name = form.cleaned_data["name"]
             logo.email = form.cleaned_data["email"]
             logo.save()
             return HttpResponseRedirect('/index/')
