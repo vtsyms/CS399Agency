@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load bootstrap3 %}
 {% block pagetitle %} Campaign Three {% endblock %}
 
 {% block body %}
@@ -54,25 +55,16 @@
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Name" id="name">
+        <div class="row">
+                <div class="col-md-6 text-center">
+                    <form action="/ts/" method="POST">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        {% endbuttons %}
+                    </form>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-6">
-                    <input type="email" class="form-control" placeholder="Email" id="email">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
-
 {% endblock %}

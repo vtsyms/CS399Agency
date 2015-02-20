@@ -4,9 +4,11 @@ from models import Contest
 from models import Refer
 from models import Signup
 from models import Sweetsleds
+from models import Logos
 
 admin.site.register(Contact)
 admin.site.register(Contest)
 admin.site.register(Refer)
 admin.site.register(Signup)
 admin.site.register(Sweetsleds)
+admin.site.register(Logos)
