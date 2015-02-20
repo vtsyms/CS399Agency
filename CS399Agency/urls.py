@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from views import index, about, contests, connect, contact, friend, signup, campaigns, campone, camptwo, campthree, ts, reffered, feedback, error
+from views import index, about, contests, connect, contact, friend, signup, campaigns, campone, camptwo, campthree, ts, reffered, feedback, error, sweetthanks
 
 urlpatterns = patterns('',
     # Examples:
@@ -22,5 +22,6 @@ urlpatterns = patterns('',
     url(r'^ts', ts),
     url(r'^reffered', reffered),
     url(r'^feedback', feedback),
-    url(r'^404', error)
+    url(r'^404', error),
+    url(r'^sweetthanks', sweetthanks)
 )

@@ -89,13 +89,15 @@ def campone(request):
             ss = Sweetsleds()
             ss.email = form.cleaned_data["email"]
             ss.save()
-            return HttpResponseRedirect ("/ts/")
+            return HttpResponseRedirect ("/sweetthanks/")
 
     elif request.method == 'GET':
             form = SweetSledsForm()
     else:
         return HttpResponseRedirect ("/404/")
     return render(request, "campone.html", {"form": form})
+def sweetthanks(request):
+    return render(request, 'sweetthanks.html')
 
 class ReferForm(forms.Form):
     email = forms.EmailField(label = "Your Email")
