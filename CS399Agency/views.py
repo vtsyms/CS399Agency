@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
-from models import Signup, Contest, Entrant, Refer, Contact, Sweetsleds
+from models import Signup, Contest, Entrant, Refer, Contact, Sweetsleds, Smartpets
 
 
 def index(request):
@@ -125,8 +125,24 @@ def friend(request):
 def campaigns(request):
     return render(request, 'campaigns.html')
 
+class SmartpetsForm(forms.Form):
+    email = forms.EmailField(label = "Your Email")
+
 def camptwo(request):
-    return render(request, 'camptwo.html')
+    if request.method == 'POST':
+        form = SmartpetsForm(request.POST)
+        if form.is_valid():
+            sp = Smartpets()
+            sp.email = form.cleaned_data["email"]
+            sp.save()
+            return HttpResponseRedirect ("/sweetthanks/")
+
+    elif request.method == 'GET':
+            form = SweetSledsForm()
+    else:
+        return HttpResponseRedirect ("/404/")
+    return render(request, "camptwo.html", {"form": form})
+
 
 class LogosForm(forms.Form):
     name = forms.CharField(label = "Name")
