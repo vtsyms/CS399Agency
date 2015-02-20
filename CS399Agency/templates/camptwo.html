@@ -28,7 +28,21 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="well text-center">
-                    Email us today for your chance to win!
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <form action="/camptwo" method="POST">
+                                <h1>Email us today for your chance to win!</h1>
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                {% buttons %}
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                {% endbuttons %}
+
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- /.col-lg-12 -->
@@ -59,21 +73,6 @@
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <form action="/camptwo" method="POST">
-                    <h1>Signup up now!</h1>
-                    {% csrf_token %}
-                    {% bootstrap_form form %}
-                    {% buttons %}
-                        <button type="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-                    {% endbuttons %}
-
-                </form>
-            </div>
-        </div>
     </div>
 
 {% endblock %}
