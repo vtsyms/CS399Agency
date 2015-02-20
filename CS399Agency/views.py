@@ -128,8 +128,23 @@ def campaigns(request):
 def camptwo(request):
     return render(request, 'camptwo.html')
 
+class LogosForm(forms.Form):
+    name = forms.CharField(label = "Name")
+    email = forms.EmailField(label = "Email")
 def campthree(request):
-    return render(request, 'campthree.html')
+    if request.method == 'POST':
+        form = LogosForm(request.POST)
+        if(form.is_valid()):
+            logo = Logos()
+            logo.name = form.cleaned_data["name"]
+            logo.email = form.cleaned_data["email"]
+            logo.save()
+            return HttpResponseRedirect('/index/')
+    elif request.method == 'GET':
+        form = LogosForm()
+    else:
+        return HttpResponseRedirect("/404/")
+    return render(request, 'campthree.html', {"form": form})
 
 def ts(request):
     return render(request, 'ts.html')
