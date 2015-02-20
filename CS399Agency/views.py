@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
-from models import Signup, Contest, Entrant, Refer, Contact
+from models import Signup, Contest, Entrant, Refer, Contact, Sweetsleds
 
 
 def index(request):
@@ -79,23 +79,23 @@ def signup(request):
         return HttpResponseRedirect ("/404/")
     return render(request, "signup.html", {"form": form})
 
-"""class SweetSledsForm(forms.Form):
+class SweetSledsForm(forms.Form):
     email = forms.EmailField(label = "Your Email")
 
-def SweetSignup(request):
+def campone(request):
     if request.method == 'POST':
         form = SweetSledsForm(request.POST)
         if form.is_valid():
-            su = Signup()
-            su.email = form.cleaned_data["email"]
-            su.save()
+            ss = Sweetsleds()
+            ss.email = form.cleaned_data["email"]
+            ss.save()
             return HttpResponseRedirect ("/ts/")
 
     elif request.method == 'GET':
             form = SweetSledsForm()
     else:
         return HttpResponseRedirect ("/404/")
-    return render(request, "campone.html", {"form": form})"""
+    return render(request, "campone.html", {"form": form})
 
 class ReferForm(forms.Form):
     email = forms.EmailField(label = "Your Email")
@@ -122,9 +122,6 @@ def friend(request):
 
 def campaigns(request):
     return render(request, 'campaigns.html')
-
-def campone(request):
-    return render(request, 'campone.html')
 
 def camptwo(request):
     return render(request, 'camptwo.html')
