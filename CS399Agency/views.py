@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
-from models import Signup, Contest, Entrant, Refer, Contact, Sweetsleds, Smartpets
+from models import Signup, Contest, Entrant, Refer, Contact, Sweetsleds, Smartpets, Logos
 
 
 def index(request):
